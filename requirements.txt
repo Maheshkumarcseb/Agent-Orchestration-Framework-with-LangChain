@@ -1,0 +1,7 @@
+os
+re
+math
+requests
+python-dotenv
+langchain
+langchain-google-genai
