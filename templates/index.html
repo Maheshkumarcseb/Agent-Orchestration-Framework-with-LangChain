@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Workflow Automation</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<!--HEADER -->
+<header class="navbar">
+  <div class="logo">🤖 Compose Your Email Using AI</div>
+<nav>
+  <a href="/">Home</a>
+  <a href="/workflow">Workflow</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <h1>Multi-Agent Workflow Automation</h1>
+  <p>
+    Automate research, summarization, and professional email generation
+    using LangChain and Grok LLM.
+  </p>
+</section>
+
+<!--  INPUT FORM  -->
+<section class="form-section">
+  <div class="form-card">
+
+    <h2 class="form-title">Run Automated Workflow</h2>
+
+    <label for="topic">Topic</label>
+    <input id="topic" type="text" placeholder="e.g. AI Agent Orchestration">
+
+    <label for="purpose">Email Purpose</label>
+    <input id="purpose" type="text" placeholder="e.g. Interview Follow-up">
+
+    <button onclick="runWorkflow()">Run Workflow</button>
+
+  </div>
+</section>
+
+
+<!--  OUTPUT SECTION  -->
+<section class="email-section">
+  <h3>Generated Email</h3>
+  <pre id="output">Your generated email will appear here...</pre>
+</section>
+
+<!--  FOOTER  -->
+<footer class="footer">
+  <p>© 2025 AI Workflow Automation | Built with LangChain & Grok</p>
+</footer>
+
+<!--  SCRIPT  -->
+<script>
+function runWorkflow() {
+  const topic = document.getElementById("topic").value.trim();
+  const purpose = document.getElementById("purpose").value.trim();
+  const output = document.getElementById("output");
+  const btn = document.querySelector("button");
+
+  //  Frontend validation
+  if (!topic || !purpose) {
+    output.textContent = " Please enter both Topic and Email Purpose before running the workflow.";
+    return;
+  }
+
+  // UI loading state
+  btn.classList.add("loading");
+  btn.innerText = "Generating...";
+  output.textContent = "AI agents are working on your request...";
+
+  //  API call
+  fetch("/run-workflow", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ topic, purpose })
+  })
+  .then(res => res.json())
+  .then(data => {
+    //  THIS IS WHERE YOUR SNIPPET GOES
+    if (data.error) {
+      output.textContent = "error " + data.error;
+    } else {
+      output.textContent = data.email;
+    }
+  })
+  .catch(() => {
+    output.textContent = " Error generating email.";
+  })
+  .finally(() => {
+    btn.classList.remove("loading");
+    btn.innerText = "Run Workflow";
+  });
+}
+</script>
+
+</body>
+</html>
