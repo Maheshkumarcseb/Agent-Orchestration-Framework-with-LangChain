@@ -1,0 +1,11 @@
+python-dotenv
+requests
+langchain
+langchain-community
+langchain-groq
+langchain-xai
+faiss-cpu
+flask
+pydantic
+numpy
+scikit-learn
