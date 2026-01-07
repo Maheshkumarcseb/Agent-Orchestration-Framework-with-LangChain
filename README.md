@@ -1,6 +1,13 @@
+COMMAND FOR RUNNING OUR PROJECT
+ git clone https://github.com/Maheshkumarcseb/Agent-Orchestration-Framework-with-LangChain.git
+ python -m venv venv
+ source venv\Scripts\activate
+ pip install -r requirements.txt
+ python mileStone4.py
  Agent-Orchestration Framework with LangChain
- Project Overview
 
+ 
+Project Overview
 This project focuses on designing and implementing a multi-agent orchestration framework using LangChain.
 The system simulates intelligent collaboration between multiple AI agents that can reason, plan, use tools, manage memory, and automate complex workflows.
 The project is developed incrementally across four milestones, each milestone adding new capabilities and system maturity — starting from a basic agent and
@@ -19,6 +26,7 @@ Specialized Agents
 Tools + Memory
         ↓
 Structured Output (JSON / UI Response)
+
 
  --> Milestone 1: Foundations of Intelligent Agents
  -->Objective
