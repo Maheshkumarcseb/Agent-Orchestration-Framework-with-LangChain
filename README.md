@@ -1,9 +1,15 @@
 COMMAND FOR RUNNING OUR PROJECT
+
  git clone https://github.com/Maheshkumarcseb/Agent-Orchestration-Framework-with-LangChain.git
+ 
  python -m venv venv
+ 
  source venv\Scripts\activate
+ 
  pip install -r requirements.txt
+ 
  python mileStone4.py
+ 
  Agent-Orchestration Framework with LangChain
 
  
